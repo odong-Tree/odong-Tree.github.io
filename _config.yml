@@ -1,0 +1,68 @@
+# Site Info
+title: '오동나무입니다'
+tagline: '오동나무 블로그'
+description: '오동나무의 블로그'
+baseurl: ""
+url: "https://odong-Tree.github.io"
+logo: '/public/logo.png'
+
+# Site configurations
+gems:
+  - jekyll-paginate
+markdown: kramdown
+kramdown:
+  input: GFM
+excerpt_separator: "<!-- more -->"
+sass:
+  style: compressed
+  sass_dir: _scss
+paginate: 5
+paginate_path: '/blog/page:num'
+permalink: pretty
+
+version: 1.0.0
+
+# About/contact
+author:
+  name: odong-Tree
+  description: 오동나무(odong-Tree)
+  contact:
+    # linkedin:  https://www.linkedin.com/in/lizhihao
+    github:    https://github.com/odong-Tree
+    # facebook:  https://www.facebook.com/zbtvoa65
+    # twitter:   https://twitter.com/Li_Zhihao
+    # weibo:     http://weibo.com/41173780
+    # email:    mailto:zbtvoa.01@gmail.com
+
+# Navigation (2nd level links supported)
+nav:
+  Home:
+    - '/'
+  Categories:
+    - '/'
+    # - { Categories All: '/blog/categories/' }
+    - { til: '/blog/categories/#til' }
+    - { swift: '/blog/categories/#swift' }
+    - { ios: '/blog/categories/#ios' }
+  #  - { Algorithm: '/blog/categories/#Algorithm' }
+    - { git: '/blog/categories/#git' }
+  #  - { CS : '/blog/categories/#CS' }
+  #  - { PROJECT: '/blog/categories/#PROJECT' }
+  #  - { error: '/blog/categories/#error' }
+    - { etc: '/blog/categories/#etc' }
+    # - { Tags: '/blog/tags/' }
+  About:
+    - '/about/'
+  # Search:
+  #  - '/search/'
+
+# Where are tags and categories displayed
+tag_page: '/blog/tags/'
+category_page: '/blog/categories/'
+
+
+# Puglins
+mathjax: true # whether support mathjax
+google_analytics_token: 'UA-153120306-1' # leave blank if you don't want google analytics
+disqus_short_name: 'odong-Tree' # leave blank if you don't want disqus
+
