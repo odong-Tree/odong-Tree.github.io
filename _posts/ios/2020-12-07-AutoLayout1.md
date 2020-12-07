@@ -35,7 +35,8 @@ comments: true
 <br>
 
 ### 오토레이아웃 인터페이스
-![auto4](/assets/post-img/ios/2020-12/auto4_tqrybeaxs.jpg)    <br>
+![auto4](/assets/post-img/ios/2020-12/auto4.jpg)
+<br>
 ![auto5](/assets/post-img/ios/2020-12/auto5.jpg) <br>
 &nbsp;오토레이아웃 인터페이스는 우측 하단에 5개가 모여있습니다.
 - Update Frame: 구성요소를 제약사항에 맞게 위치시킵니다. (사진없음)
