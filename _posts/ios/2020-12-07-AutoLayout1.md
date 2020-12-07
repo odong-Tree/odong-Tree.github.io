@@ -19,7 +19,7 @@ comments: true
 
 ### 제약 (Constraints)
 &nbsp;오토레이아웃은 제약 조건(Constraints)을 이용하여 뷰의 위치를 정합니다. 제약 조건은 뷰의 구성요소들 간의 약속, 혹은 관계입니다. 즉 단독적일 수 없는 상대적인 값이 됩니다. <br>
-<img src = "/assets/auto1.png" width = "90%">
+<img src = "/assets/post-img/ios/2020-12/auto1.png" width = "90%">
 
 오토레이아웃은 이러한 수식으로 나타낼 수 있습니다. 이 수식은 스토리보드에서는 <br>
 <img src = "/assets/auto2.jpg" width = "70%">
@@ -64,7 +64,7 @@ Intrinsic Content Size는 고유 콘텐츠 사이즈입니다. 공식문서는 �
 이 경우를 보면 하나의 제약이 점선으로 표시되어 있는데요, 이는 제약의 우선도가 낮아서 숨어버린 것입니다.   <br>
 &nbsp;제약의 우선도는 기본적으로 1000의 값을 가지게 되며 숫자가 높은 순서대로 우선됩니다. 우선도는 1부터 1000까지의 양의 정수로 설정해줄 수 있는데요, 기본적으로 Xcode에서는 Low(250), High(750), Required(1000) 3가지가 제공됩니다.
 
- <img src = "/assets/스크린샷%202020-12-07%20오후%208.30.57.jpg" width = "70%">
+ <img src = "/assets/스크린샷%202020-12-07%20오후%208.30.57.jpg" width = "70%">
 
 
 ### Hugging, Compression
