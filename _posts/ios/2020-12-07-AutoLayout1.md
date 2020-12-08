@@ -20,7 +20,7 @@ comments: true
 ### 제약 (Constraints)
 &nbsp;오토레이아웃은 제약 조건(Constraints)을 이용하여 뷰의 위치를 정합니다. 제약 조건은 뷰의 구성요소들 간의 약속, 혹은 관계입니다. 즉 단독적일 수 없는 상대적인 값이 됩니다. <br>
 <img src = "/assets/post-img/ios/2020-12/auto1.png" width = "90%">   
-오토레이아웃은 이러한 수식으로 나타낼 수 있습니다. 이 수식은 스토리보드에서는 
+오토레이아웃은 이러한 수식으로 나타낼 수 있습니다. 이 수식은 스토리보드에서는
 <br>
 <img src = "/assets/post-img/ios/2020-12/auto2.jpg" width = "70%">   
 
