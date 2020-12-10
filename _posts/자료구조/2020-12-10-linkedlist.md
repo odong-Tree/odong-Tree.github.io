@@ -20,7 +20,7 @@ Swift로 구현까지 해보도록 하겠습니다.
 
 <br>
 
-#  연결 리스트 (Linked List) 
+#  연결 리스트 (Linked List)
 
 연결 리스트는 배열, 스택, 큐 등과 함께 선형구조의 자료 구조 중 하나입니다.
 또는 트리, 그래프와 함께 연결 데이터 구조로 분류되기도 합니다.   
@@ -36,9 +36,9 @@ Swift로 구현까지 해보도록 하겠습니다.
 <br>
 
 
-####  ✐ 연결 리스트 <br>
+####  ✐ 연결 리스트 <br>   
 
-![연결리스트1](/assets/post-img/자료구조/연결리스트1.jpg)
+![linkedlist1](/assets/post-img/자료구조/linkedlist1.jpg)
 
 * 연결 리스트는 일련의 ‘노드’로 구성되어 있다.
 * 이 노드는 링크필드를 통해 서로 연결되어 있다.
@@ -58,7 +58,7 @@ Swift로 구현까지 해보도록 하겠습니다.
 * 이중 연결 리스트
 * 원형 연결 리스트 <br>
 
-![연결리스트2](/assets/post-img/자료구조/연결리스트2.jpg)
+![linkedlist2](/assets/post-img/자료구조/linkedlist2.jpg)
 
 <br>
 
@@ -165,3 +165,7 @@ class LinkedList {
 꼬리에 꼬리를 무는 프로퍼티의 연속이라고 할 수 있습니다.
 
 <br>
+
+참고
+- [https://www.youtube.com/watch?v=oLXRe7JWJ5g&feature=emb_logo](https://www.youtube.com/watch?v=oLXRe7JWJ5g&feature=emb_logo)
+- 스위프트 데이터 구조와 알고리즘(에이콘, 에릭 아자르 - 마리오 에귈루즈 알레빅토 지음)
