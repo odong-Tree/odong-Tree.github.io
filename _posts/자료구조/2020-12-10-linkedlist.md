@@ -165,3 +165,7 @@ class LinkedList {
 꼬리에 꼬리를 무는 프로퍼티의 연속이라고 할 수 있습니다.
 
 <br>
+
+참고 
+- [https://www.youtube.com/watch?v=oLXRe7JWJ5g&feature=emb_logo](https://www.youtube.com/watch?v=oLXRe7JWJ5g&feature=emb_logo)
+- 스위프트 데이터 구조와 알고리즘(에이콘, 에릭 아자르 - 마리오 에귈루즈 알레빅토 지음)
