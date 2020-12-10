@@ -5,7 +5,8 @@ category: 자료구조
 tags: [자료구조]
 comments: true
 ---
->이 글은 공부 중에 작성하는 글입니다. 정정이 필요한 내용은 댓글로 알려주시면 감사하겠습니다 :)
+>이 글은 공부 중에 작성하는 글입니다.    
+>정정이 필요한 내용은 댓글로 알려주시면 감사하겠습니다 :)
 
 <br>
 
@@ -66,7 +67,7 @@ Swift로 구현까지 해보도록 하겠습니다.
 이 예시는 유튜브의 **Lets Build That App** 채널에서 가져온 예시이며   
 링크는 맨 아래에 첨부합니다.
 
-```Swift
+```swift
 class Node {
     let value: Int
     var next: Node?
@@ -167,6 +168,6 @@ class LinkedList {
 <br>
 
 
-참고 
+참고
 - [https://www.youtube.com/watch?v=oLXRe7JWJ5g&feature=emb_logo](https://www.youtube.com/watch?v=oLXRe7JWJ5g&feature=emb_logo)
 - 스위프트 데이터 구조와 알고리즘(에이콘, 에릭 아자르 - 마리오 에귈루즈 알레빅토 지음)
