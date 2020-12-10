@@ -47,8 +47,8 @@ nav:
   #  - { Algorithm: '/blog/categories/#Algorithm' }
     - { git: '/blog/categories/#git' }
   #  - { CS : '/blog/categories/#CS' }
-  #  - { PROJECT: '/blog/categories/#PROJECT' }
-  #  - { error: '/blog/categories/#error' }
+    - { 자료구조: '/blog/categories/#자료구조' }
+    - { 알고리즘: '/blog/categories/#알고리즘' }
     - { etc: '/blog/categories/#etc' }
     # - { Tags: '/blog/tags/' }
   About:
