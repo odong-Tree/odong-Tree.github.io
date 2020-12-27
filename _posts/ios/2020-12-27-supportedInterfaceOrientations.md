@@ -24,7 +24,7 @@ comments: true
 
 ### ✐ 화면 회전 <br>
 
-<img src  = "/assets/post-img/ios/2020-12/orientation1.jpg" width = "80%">             
+<img src  = "/assets/post-img/ios/2020-12/orientation1.jpg" width = "90%">             
 
 화면 전환에 대한 설정은 ```Project Targets```와 ```Info.plist```에서 설정할 수 있습니다. Device Orientation에 원하는 세팅을 체크해주면 Info.plist에도 자동으로 적용됩니다.
 
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
 
 이러한 경우에는 AppDelegate에서 설정한 값이 우선적으로 처리됩니다. Info.plist는 추후 코드로 별다른 설정이 없을 경우 적용되는 default값과 같은 느낌이네요!
 
- <br>
+<br>
 
 이렇게 AppDelegate로도 제어를 해줄 수 있지만, **전역 변수**가 발생한다는 점에서 위험하다는 생각이 들기도 합니다. 전역 변수가 아니라 해당 ViewController 내부에서 제어를 해줄 수 있는 방법은 없을까요?
 
@@ -124,7 +124,7 @@ class ViewController: UIViewController {
 #### ✐ 상위의 ViewController를 가지는 경우
 하지만 해당 ViewController가 **상위의 ViewController를 가지는 경우** 주의해야합니다. 예를 들어서 NavigationController 안에 들어가있는 ViewController의 경우를 말합니다. <br>
 
-이때에는 supportedInterfaceOrientations 프로퍼티를 재정의 해주더라도 상위의 ViewController의 세팅을 따르기 때문인데요, 그렇다면 어떻게 코드를 작성해줄 수 있을까요? NavigationController 안의  ViewController를 예로 듭니다. < br>
+이때에는 supportedInterfaceOrientations 프로퍼티를 재정의 해주더라도 상위의 ViewController의 세팅을 따르기 때문인데요, 그렇다면 어떻게 코드를 작성해줄 수 있을까요? NavigationController 안의  ViewController를 예로 듭니다. <br>
 
 여기서부터는 [라자냐의 블로그](https://velog.io/@wonhee010/특정-ViewController에서-화면-회전-처리)에서 코드를 참고하여 작성합니다!
 <br>
