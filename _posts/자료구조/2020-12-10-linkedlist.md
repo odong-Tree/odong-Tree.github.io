@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 연결 리스트(Linked List), Swift로 구현하기
-category: DataStructure
-tags: [DataStructure]
+category: 자료구조
+tags: [자료구조, 연결리스트]
 comments: true
 ---
 >이 글은 공부 중에 작성하는 글입니다.    
