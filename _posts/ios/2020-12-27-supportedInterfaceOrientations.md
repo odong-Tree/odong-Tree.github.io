@@ -1,8 +1,8 @@
 ---
 layout: post
 title: iOS, 특정 화면만 방향 고정시키기
-category: ios
-tags: [view]
+category: iOS
+tags: [View, Orientation]
 comments: true
 ---
 >이 글은 공부 중에 작성하는 글입니다.     

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Notification, Notification Center
-category: ios
-tags: [notification]
+category: iOS
+tags: [Notification]
 comments: true
 ---
 

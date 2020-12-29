@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AutoLayout 1, 개념다지기
-category: ios
+category: iOS
 tags: [AutoLayout]
 comments: true
 ---

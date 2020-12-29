@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 고차함수 (Higher Order Function)
-category: swift
+category: Swift
 tags: [고차함수]
 comments: true
 ---

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 에러 핸들링 (Error Handling)
-category: swift
-tags: [error]
+category: Swift
+tags: [Error]
 comments: true
 ---
 >이 글은 공부 중에 작성하는 글입니다.    

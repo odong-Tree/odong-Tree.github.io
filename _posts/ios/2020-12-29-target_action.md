@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Target-Action 디자인 패턴
-category: ios
-tags: [target-action, UIControl]
+category: iOS
+tags: [Target-Action, UIControl]
 comments: true
 ---
 
