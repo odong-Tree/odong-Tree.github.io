@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ARC, 강한 참조와 약한 참조
-category: iOS
+category: Swift
 tags: [ARC, weak, strong, unowned]
 comments: true
 ---
