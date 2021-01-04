@@ -28,25 +28,25 @@ comments: true
 
 <br>
 
-### FCFS(First-Come First-Served)
+### ✐ FCFS(First-Come First-Served)
 - 준비 상태 큐에 도착한 순서에 따라 차례로 CPU를 할당
 
-### SJF(Shortest Job Firtst)
+### ✐ SJF(Shortest Job Firtst)
 - 실행 시간이 가장 짧은 프로세스에게 먼저 CPU를 할당
 - 평균 대기시간이 가장 적은 알고리즘
 - 실행시간이 긴 프로세스에 밀려  무한 연기상태 발생가능
 
-### HRN(Highest Responseratio Next)
+### ✐ HRN(Highest Responseratio Next)
 - 실행시간이 긴 프로세스에 불리한 SJF 기법을 보완하기 위한 것으로, 대기 시간과 서비스 시간을 이용하는 기법
 - 우선순위 계산 공식 = 대기시간 + 서비스시간 / 서비스시간
 - 우선 순위 계산 결과값이 높은 것부터 우선  순위가 부여, 대기 시간이 긴 프로세스일 경우 계산 결과값이 높게 나옴
 
-### 기한부(Deadline)
+### ✐ 기한부(Deadline)
 - 프로세스에게 일정한 시간을 주어 그 시간 안에 프로세스를 완료하도록 하는 기법
 - 시스템은 프로세스에게 할당할 정확한 시간을 추정해야함
 - 사용자는 시스템이 요구한 프로세스에 대한 정확한 정보를 제공해야함
 
-### 우선순위(Priority)
+### ✐ 우선순위(Priority)
 - 준비상태 큐에서 기다리는 각 프로세스마다 우선순위를 부여하여 그 중 가장 높은 프로세스에게 먼저 CPU를 할당하는 기법
 - 우선순위가 동일한 경우 FCFS 기법으로 할당
 - 가장 낮은 순위를 부여받은 프로세스의 무한 연기 발생가능
@@ -63,11 +63,11 @@ comments: true
 
 <br>
 
-### SRT (Shortest Remaining Time)
+### ✐ SRT (Shortest Remaining Time)
 - 비선점 기법 SJF 알고리즘을 선점 형태로 변경한 기법
 - 현재 실행중  프로세스의 남은 시간과 준비상태 큐에 새로 추가한 프로세스의 실행시간을 비교해 가장 짧은 실행 시간을 요구하는 프로세스에게 CPU를 할당
 
-###  RR (Round Robin Scheduling)
+### ✐ RR (Round Robin Scheduling)
 - 시분할 시스템을 위해 고안된 방식
 - FCFS 기법 변형
 - 각 프로세스는 시간 할당량 동안만 실행
@@ -76,13 +76,13 @@ comments: true
 - 할당시간이 작을 수록 문맥 교환과 오버헤드가 자주 발생
 
 
-### 다단계 큐 (Multi level Queue)
+### ✐ 다단계 큐 (Multi level Queue)
 - 프로세스를 특정 그룹으로 분류할 수 있을 경우 그룹에 따라 각기 다른 준비단계 큐 사용
 - 준비상태 큐마다 다른 스케줄링 기법 사용가능
 - 다른 준비상태 큐로  이동 불가
 - 하위단계 준비 큐에 있는 프로세스를 실행하는 도중이라도 상위 단계 준비상태 큐에  프로세스가 들어오면 상위단계 프로세스에게 CPU를 할당
 
-### 다단계 피드백 큐(Multi level Feedback Queue)
+### ✐ 다단계 피드백 큐(Multi level Feedback Queue)
 특정 그룹의 준비상태 큐에 들어간 프로세스가 다른 준비상태 큐로 이동할 수  없는 다단계 큐기법을 준비상태 큐 사이를 이동할 수 있도록 개선한 기법
 
 
