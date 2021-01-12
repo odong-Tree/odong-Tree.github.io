@@ -131,6 +131,7 @@ DispatchQueue를 통해 스레드에 작업을 할당하는 경우, 작업이 �
 ---------------------
 
 DispatchGroup과 QoS는 따로 포스팅할 예정입니다.
+[GCD, Qos와 DispatchGroup 포스팅 보러가기](https://odong-tree.github.io/ios/2021/01/12/dispatchqueue2/)
 
 <br>
 <br>
