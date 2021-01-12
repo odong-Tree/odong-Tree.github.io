@@ -59,6 +59,7 @@ DipatchQueue.main
 
 - **Concurrent**       
 실행 중인 작업이 끝나기를 기다리지 않고 대기열(Queue)에 있는 작업을 동시에 별도의 스레드를 사용하여 실행합니다. 즉, 새로운 스레드를 만들어 작업을 처리하는 병렬처리 방식입니다.
+
 ```swift
 DispatchQueue(attributes: .concurrent)
 DipatchQueue.global()
