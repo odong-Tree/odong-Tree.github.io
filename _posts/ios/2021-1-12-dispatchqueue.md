@@ -50,6 +50,7 @@ DispatchQueue는 GCD 기술의 일부입니다. 작업을 연속적으로 혹은
 ### ✐ Serial, Concurrent
 - **Serial**       
 대기열(Queue)에 등록한 순서대로 작업을 실행합니다. 하나의 작업을 실행하고 실행이 끝날 때까지 대기열(Queue)에 있는 다른 작업을 미루고 있다가 이전 작업이 끝나면 실행합니다. 즉 하나의 스레드에서 작업이 이루어 지는 것입니다.
+
 ```swift
 DispatchQueue(attributes: .serial)
 DipatchQueue.main
@@ -131,7 +132,7 @@ DispatchQueue를 통해 스레드에 작업을 할당하는 경우, 작업이 �
 
 ---------------------
 
-DispatchGroup과 QoS는 따로 포스팅할 예정입니다.
+
 [GCD, Qos와 DispatchGroup 포스팅 보러가기](https://odong-tree.github.io/ios/2021/01/12/dispatchqueue2/)
 
 <br>
