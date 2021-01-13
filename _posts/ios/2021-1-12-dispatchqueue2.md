@@ -12,7 +12,7 @@ comments: true
 
 안녕하세요 오동나무입니다.  <br>
 
-[GDC, DispatchQueue 이해하기]() 포스팅에 이어서 QoS와 DispatchGroup에 대해서 알아보도록 하겠습니다.
+[GDC, DispatchQueue 이해하기](https://odong-tree.github.io/ios/2021/01/12/dispatchqueue/) 포스팅에 이어서 QoS와 DispatchGroup에 대해서 알아보도록 하겠습니다.
 
 
 # QoS (Quality of service)
