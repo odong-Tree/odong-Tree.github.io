@@ -55,7 +55,7 @@ var name: String? { get set }
 ### ✐ Thread-safe
 여러 스레드로부터 단일(single) OperationQueue를 사용하는 것은 **Thread-safe**합니다. Thread-safe하다는 것은 여러 스레드에서 값에 접근할 때 값이 온전하거나 안전한 것을 말합니다. 객체 지향에서는 함수형 프로그래밍과 다르게 상태값을 가지기 때문에 동시에 접근하는 경우 문제(race condition)가 발생할 수 있습니다. <br>
 
-단일 Operation이라는 말이 이해가 안됐는데 아래와 같이 테스트해보니 addExecutionBlock을 사용하여 같은 프로퍼티에 접근하면 race condition이 발생하더군요.
+단일 OperationQueue이라는 말이 이해가 안됐는데 아래와 같이 테스트해보니 addExecutionBlock을 사용하여 같은 프로퍼티에 접근하면 race condition이 발생하더군요.
 
 ```swift
 var array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -162,7 +162,7 @@ func addOperations(_ ops: [Operation], waitUntilFinished wait: Bool)
 func addOperation(_ block: @escaping () -> Void)
 ```
 
-addOperation은 OperationQueue에 Operation을 추가하는 메서드입니다. 추가되는 동시에 Operation의 작업이 수행됩니다. 작업을 시작하는 메서드라고 봐도 무방할 것 같네요.
+**addOperation**은 OperationQueue에 Operation을 추가하는 메서드입니다. 추가되는 동시에 Operation의 작업이 수행됩니다. 작업을 시작하는 메서드라고 봐도 무방할 것 같네요.
 
 ```swift
 let someOperation = BlockOperation {
@@ -187,7 +187,7 @@ func waitUntilAllOperationsAreFinished()
 func cancelAllOperations()
 ```
 
-이름만 봐도 어떤 역할을 하는 코드인지 감이 올 것 같네요. maxConcurrentOperationCount는 한 번에 최대로 수행되는 작업의 갯수입니다. 어떠한 설정이 없는 OperationQueue에 Operation이 들어오게 되면 기본적으로 비동기적으로 작업이 진행됩니다. 하지만 이때 maxConcurrentOperationCount를 설정해주면 작업 순서에 맞게 동시에 작업될 수 있는 Operation의 수를 제한해줄 수 있습니다.
+이름만 봐도 어떤 역할을 하는 코드인지 감이 올 것 같네요. **maxConcurrentOperationCount** 는 한 번에 최대로 수행되는 작업의 갯수입니다. 어떠한 설정이 없는 OperationQueue에 Operation이 들어오게 되면 기본적으로 비동기적으로 작업이 진행됩니다. 하지만 이때 **maxConcurrentOperationCount** 를 설정해주면 작업 순서에 맞게 동시에 작업될 수 있는 Operation의 수를 제한해줄 수 있습니다.
 
 ```swift
 let someOperation = BlockOperation {
@@ -229,7 +229,7 @@ Operation에서 비슷한 개념들을 다루어 보아서 이해하는게 어�
 var qualityOfService: QualityOfService
 ```
 
-Operation과 DispatchQueue에서 언급했던 QoS입니다. OperationQueue에도 같은 QualityOfService 열거형을 할당해줄 수 있습니다. 대기열 작업을 효율적으로  수행할 수 있도록  여러 우선순위 옵션을 제공하며, 역시 에너지 효율과 관련이 있겠네요.
+Operation과 DispatchQueue에서 언급했던 **QoS**입니다. OperationQueue에도 같은 QualityOfService 열거형을 할당해줄 수 있습니다. 대기열 작업을 효율적으로  수행할 수 있도록  여러 우선순위 옵션을 제공하며, 역시 에너지 효율과 관련이 있겠네요.
 
 ```swift
 enum QualityOfService : Int {
@@ -249,7 +249,7 @@ enum QualityOfService : Int {
 var isSuspended: Bool { get set }
 ```
 
-isSuspended는 대기열이 Operation 스케줄링이 진행 중인지에 대한 상태를 나타내는 Bool 값입니다. false인 경우, 대기열의 Operation을 실행시키고, true인 경우, 대기열의 Operation을 실행하지는 않지만 현재 실행 중인 Operation은 계속 실행이 됩니다. 중단된 대기열에  Operation을 추가할 수는 있지만 isSuspended가 false가 될때까지 실행되지는 않습니다.  <br>
+isSuspended는 대기열이 Operation 스케줄링이 진행 중인지에 대한 상태를 나타내는 Bool 값입니다. **false인 경우, 대기열의 Operation을 실행**시키고, true인 경우, 대기열의 Operation을 실행하지는 않지만 현재 실행 중인 Operation은 계속 실행이 됩니다. 중단된 대기열에  Operation을 추가할 수는 있지만 isSuspended가 false가 될때까지 실행되지는 않습니다.  <br>
 
 Operation은  실행이 완료되어야만 OperationQueue에서 제거가 되는데, 대기열이 중단된 상태라면 Operation이 완료, 제거되지 못하고 계속 남아있는 상태가 됩니다. 이때에는 처음에 언급한 **메모리 누수**가 발생할 수 있겠네요.
 
