@@ -366,6 +366,7 @@ class newOperation: Operation {
 
 ---------------
 
+[OperationQueue 2편 포스팅 보러가기](https://odong-tree.github.io/swift/2021/01/14/operationqueue/)
 
 
 

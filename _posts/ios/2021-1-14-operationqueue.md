@@ -2,7 +2,7 @@
 layout: post
 title: OperationQueue 2편
 category: Swift
-tags: [비트]
+tags: [OperationQueue]
 comments: true
 ---
 >이 글은 공부 중에 작성하는 글입니다.       
