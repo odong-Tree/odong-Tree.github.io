@@ -24,7 +24,7 @@ comments: true
 
 ### Operation
 
-Operation은 세 가지 상태를 가집니다. Ready, Executing, Finished 상태가 있습니다. 먼저 Ready는 Operation을 실행할 수 있는 상태(실행 전), Executing은 실행 중인 상태, Finished는 Operation이  정상적으로 종료되거나 중간에 취소된 상태를 말합니다. 그리고 **한 번 실행된 Operation은 다시 실행할 수 없습니다.** <br>
+Operation은 네 가지 상태를 가집니다. Ready, Executing, Finished, isCanceled 상태가 있습니다. 먼저 Ready는 Operation을 실행할 수 있는 상태(실행 전), Executing은 실행 중인 상태, Finished는 Operation이  정상적으로 종료되거나 중간에 취소된 상태를 말합니다. 그리고 **한 번 실행된 Operation은 다시 실행할 수 없습니다.** <br>
 
 
 >**Operation이 제공하는 주요 기능**
