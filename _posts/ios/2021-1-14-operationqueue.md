@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OperationQueue 2편
-category: Swift
+category: iOS
 tags: [OperationQueue]
 comments: true
 ---

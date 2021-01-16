@@ -65,5 +65,3 @@ category_page: '/blog/categories/'
 mathjax: true # whether support mathjax
 google_analytics_token: 'G-TK1W5ZFQBY' # leave blank if you don't want google analytics
 disqus_short_name: 'odong-Tree' # leave blank if you don't want disqus
-plugins:
-    - jekyll-sitemap

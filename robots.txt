@@ -1,5 +1,4 @@
- 
 User-agent: *
 Allow: /
-Sitemap: {{ '/sitemap.xml' | relative_url | prepend: site.url }}
-    
+
+Sitemap: https://odong-tree.github.io/sitemap.xml
