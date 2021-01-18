@@ -53,80 +53,8 @@ var name: String? { get set }
 <br>
 
 ### ✐ Thread-safe
-여러 스레드로부터 단일(single) OperationQueue를 사용하는 것은 **Thread-safe**합니다. Thread-safe하다는 것은 여러 스레드에서 값에 접근할 때 값이 온전하거나 안전한 것을 말합니다. 객체 지향에서는 함수형 프로그래밍과 다르게 상태값을 가지기 때문에 동시에 접근하는 경우 문제(race condition)가 발생할 수 있습니다. <br>
+여러 스레드로부터 단일(single) OperationQueue를 사용하는 것은 **Thread-safe**합니다. Thread-safe하다는 것은 여러 스레드에서 값에 접근할 때 값이 온전하거나 안전한 것을 말합니다. 객체 지향에서는 함수형 프로그래밍과 다르게 상태값을 가지기 때문에 동시에 접근하는 경우 문제(race condition)가 발생할 수 있습니다. 
 
-단일 OperationQueue이라는 말이 이해가 안됐는데 아래와 같이 테스트해보니 addExecutionBlock을 사용하여 같은 프로퍼티에 접근하면 race condition이 발생하더군요.
-
-```swift
-var array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-let someBlock = BlockOperation {
-    let num = array.removeFirst()
-    print(num)
-}
-
-someBlock.addExecutionBlock {
-    let num = array.removeFirst()
-    print(num)
-}
-
-someBlock.addExecutionBlock {
-    let num = array.removeFirst()
-    print(num)
-}
-
-someBlock.addExecutionBlock {
-    let num = array.removeFirst()
-    print(num)
-}
-
-let queue = OperationQueue()
-queue.addOperation(someBlock)
-
-/* 출력
-1
-1
-1
-1
-*/
-```
-
-##### 대신 아래의 테스트에서는 Thread-safe 했습니다.
-
-```swift
-var array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-let someBlock = BlockOperation {
-    let num = array.removeFirst()
-    print(num)
-}
-
-let someBlock2 = BlockOperation {
-    let num = array.removeFirst()
-    print(num)
-}
-
-let someBlock3 = BlockOperation {
-    let num = array.removeFirst()
-    print(num)
-}
-
-let someBlock4 = BlockOperation {
-    let num = array.removeFirst()
-    print(num)
-}
-
-let queue = OperationQueue()
-queue.maxConcurrentOperationCount = 1
-queue.addOperations([someBlock, someBlock2, someBlock3, someBlock4], waitUntilFinished: true)
-
-/* 출력
-1
-2
-3
-4
-*/
-```
 
 <br>
 <br>
