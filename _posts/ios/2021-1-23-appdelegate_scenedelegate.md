@@ -45,18 +45,29 @@ SceneDelegate가 등장하게 된 배경에는 **Scene** 이라는 새로운 개
 >##### 멀티 윈도우(MultiWindow)
 > 저는 처음에 멀티 윈도우와 멀티태스킹의 개념이 헷갈리더군요. 아이패드의 한 화면에서 서로 다른 앱을 동시에 사용할 수 있습니다. 이때, 서로  다른 앱을 동시에 사용하는 것은 **멀티태스킹**, 한 화면에서 동일한 앱을 두 개  띄워서 작업하는 것을 **멀티윈도우**라고 합니다. 같은 앱을 동시에 실행할  수 있다는 것이 핵심입니다.
 
-그렇다면 Scene과 Window는 어떤 관계일까요? iOS 13 이후부터는 **window 개념이 scene으로 대체**되어 사용되고 있습니다. 하지만 (당연히) 둘은 같은 개념이기 보다는, 엄밀히 말하면 scene이 더 넓은 개념이라고 할 수 있을 것 같네요.
+#### [✐ Scenes 공식문서](https://developer.apple.com/documentation/uikit/app_and_environment/scenes)
+Scene은 UIWindowScene을 사용하여 앱의 **UI 인스턴스를 관리**하는 역할을 합니다. UIWindowScene는 하나 이상의 window가 사용되는 Scene, 즉 UI 인스턴스를 관리하는 클래스로 UIScene - UIResponder를 차례로 상속받고 있습니다. <br>
 
+하나의 Scene은 하나의 UI 인스턴스를 나타내기 위한 windows와  viewcontrollers를 포함하고 있습니다. 각 Scene은 UIKit과 앱의 상호작용을 담당하는 UIWindowSceneDelegate를 가지고 있습니다. Scene은 같은 메모리와 앱 process space를 공유하며, 여러개의 Scene이 동시에 실행될 수 있습니다. 그렇기 때문에 하나의 앱은 여러개의  Scene을 가질 수 있고 scene delegate 객체들은 동시에 동작할 수 있습니다. <br>
+
+
+그렇다면 Scene과 Window는 어떤 관계일까요? iOS 13 이후부터는 **window 개념이 scene으로 대체**되어 사용되고 있습니다. 하지만 당연히 둘을 같은 개념이라고 할 수는 없습니다.
+
+<br>
+
+### ✐ Window, Scene, View
+![scene6](/assets/post-img/ios/scene6.jpg)
+
+실제로 UIWindow와 UIScene은 UIResponder만 공통으로 상속받고 있네요. 오히려 UIScene과 직접적인 상속관계에 있는 것은 UIWindowScene입니다. [공식문서](https://developer.apple.com/documentation/uikit/uiscene)에 따르면 UIKit은 UIScene 대신에 그를 상속받은 UIWindowScene을 만들어내고, 실제로는 거의 UIScene의 기능을 수행하게 됩니다. <br>
+
+[UIWindow](https://developer.apple.com/documentation/uikit/uiwindow)는 view controller와 함께 이벤트를 처리하고 앱의 동작에 필수적인 많은 작업들을 수행합니다. Scene은 window를 포괄하는 좀 더 넓은 개념입니다. 위의 계층으로만 보아도 view와 window의 기능을 어느정도 아우르고 있습니다.
 
 
 <br>
 
-#### [✐ Scenes 공식문서](https://developer.apple.com/documentation/uikit/app_and_environment/scenes)
-Scene은 UIWindowScene을 사용하여 앱의 **UI 인스턴스를 관리**하는 역할을 합니다. UIWindowScene는 하나 이상의 window가 사용되는 Scene, 즉 UI 인스턴스를 관리하는 클래스로 UIScene - UIResponder를 차례로 상속받고 있습니다. <br>
 
-하나의 Scene은 하나의 UI 인스턴스를 나타내기 위한 windows와  viewcontrollers를 포함하고 있습니다. 각 Scene은 UIKit과 앱의 상호작용을 담당하는 UIWindowSceneDelegate를 가지고 있습니다. Scene은 같은 메모리와 앱 process space를 공유하며, 여러개의 Scene이 동시에 실행될 수 있습니다. 그렇기 때문에 하나의 앱은 여러개의  Scene을 가질 수 있고 scene delegate 객체들은 동시에 동작할 수 있습니다.
 
- <br>
+<br>
 
 ### ✐ SceneDelegate의 역할
 
@@ -193,6 +204,8 @@ class UISceneSession : NSObject
 세션은 직접적으로 만들 수 없고, UIKit이 사용자의 동작에 반응하여 생성하게 됩니다. 하지만 UIApplication에서 **requestSceneSessionActivation(_:userActivity:options:errorHandler:)** 메서드를 호출하는 것으로 임의로 scene과 세션을 만들어줄 수도 있다고 합니다. (확실히 AppDelegate 의 역할이 맞네요.) 그리고 세션 초기화 설정은 Info.plist에서  해줄 수 있습니다.
 
 <br>
+
+
 
 --------------
 <br>
