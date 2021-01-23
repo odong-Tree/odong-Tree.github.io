@@ -29,9 +29,9 @@ comments: true
 
 
 
-![스크린샷 2021-01-23 오후 8.17.24](/assets/post-img/ios/스크린샷%202021-01-23%20오후%208.17.24.jpg)
+![scene2](/assets/post-img/ios/scene2.jpg)
 
-![스크린샷 2021-01-23 오후 8.17.38](/assets/post-img/ios/스크린샷%202021-01-23%20오후%208.17.38.jpg)
+![scene3](/assets/post-img/ios/scene3.jpg)
 
 [WWDC](https://developer.apple.com/videos/play/wwdc2019/258/)에서 가져온 사진입니다. <br>
 
@@ -60,7 +60,7 @@ Scene은 UIWindowScene을 사용하여 앱의 **UI 인스턴스를 관리**하�
 
 ### ✐ SceneDelegate의 역할
 
-![스크린샷 2021-01-23 오후 8.18.02](/assets/post-img/ios/스크린샷%202021-01-23%20오후%208.18.02_u6pbqq5qj.jpg)      
+![scene4](/assets/post-img/ios/scene4.jpg)
 
 SceneDelegate는 **UI Lifecycle을 관리**하는 역할을 한다고 했습니다. 즉 원래 AppDelegate에서 하던 메서드들이 SceneDelegate로 넘어오면서 메서드 이름 역시 scene ~ 으로 변경되었네요. WWDC의 사진으로도 볼 수 있듯이 SceneDelegate는 **UISceneDelegate 프로토콜**을 채택하고 있습니다. 그리고  이 프로토콜은 유저가 보는 앱의 인터페이스(UI)의 life cycle을 관리합니다. <br>
 
@@ -182,7 +182,7 @@ nib 파일을 로드합니다. return 타입으로 정의된 메서드지만 절
 <br>
 
 ### ✐ SceneSession
-이 글의 초반부에서 iOS 13 이후, AppDelegate는 Session Lifecycle을 관리한다고 언급했습니다. SceneSession에 대한 내용도 [공식문서](https://developer.apple.com/documentation/uikit/uiscenesession)를 참고하여 작성합니다. <br>
+이 글의 초반부에서 iOS 13 이후, AppDelegate는 Session Lifecycle을 관리한다고 언급했습니다. 위의 코드를 보면 아래의 두 메서드는 모두 Session Lifecycle에 대한 메서드네요. SceneSession에 대한 내용도 [공식문서](https://developer.apple.com/documentation/uikit/uiscenesession)를 참고하여 작성합니다. <br>
 
 ```swift
 class UISceneSession : NSObject
