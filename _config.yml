@@ -40,7 +40,7 @@ nav:
   Categories:
     - '/'
     # - { Categories All: '/blog/categories/' }
-    - { TIL: '/blog/categories/#til' }
+    # - { TIL: '/blog/categories/#til' }
     - { Swift: '/blog/categories/#swift' }
     - { iOS: '/blog/categories/#ios' }
     - { git: '/blog/categories/#git' }
