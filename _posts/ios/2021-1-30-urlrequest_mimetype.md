@@ -1,8 +1,8 @@
 ---
 layout: post
-title: URLRequest의 setValue, MIMEType
+title: URLRequest의 setValue, Content-Type
 category: iOS
-tags: [URLRequest, MIMEType]
+tags: [URLRequest, MIMEType, Content-Type]
 comments: true
 ---
 >이 글은 공부 중에 작성하는 글입니다.       
