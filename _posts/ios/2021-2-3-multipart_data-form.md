@@ -89,7 +89,8 @@ struct Odong {
 
 ```swift
 // 사전 준비
-let boundary: String = "--OdongnamuBoundary\r\n"
+let boundary = generateBoundaryString()
+let boundaryPrefix = "--\(boundary)\r\n"
 var parameters: [String: String] = [
     "name": "Odongnamu",
     "age": "500",
@@ -100,6 +101,10 @@ let imageData: Data = UIImage(named: "odong.jpg")!.jpegData(compressionQuality: 
 let mimeType: String = "image/jpg"
 let filename: String = "odong.jpg"
 let imageKey: String = "image"
+
+func generateBoundary() -> String {
+        return "Boundary-\(UUID().uuidString)"
+    }
 
 func makeBody() -> Data {
     var bodyData = Data()
@@ -122,11 +127,48 @@ func makeBody() -> Data {
 
 let url = URL(string: "업로드할 URL")!
 var request = URLRequest(url: url)
-request.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+request.setValue(“multipart/form-data; boundary=\(boundary)”, forHTTPHeaderField: "Content-Type")
 request.httpBody = makeBody()
 
 URLSession.shared.dataTask(with: request)
 ```
+
+<br>
+
+
+### ✐ UUID().uuidString
+
+```swift
+let boundary = generateBoundaryString()
+let boundaryPrefix = "--\(boundary)\r\n"
+
+func generateBoundary() -> String {
+        return "Boundary-\(UUID().uuidString)"
+    }
+```
+
+제 코드에는  없지만 여러 레퍼런스들을 찾아보면 Boundary에 UUID를 사용하는 것을 볼 수 있었습니다. **Boundary에 UUID를  사용하는 이유는 multipart form이 서버에 데이터를  꼭 한번에 보낼 수 없기  때문에  어떤 데이터에  대한 것인지 식별자를 추가해주는 것이라고 합니다.** 이때 꼭 UUID가 없어도 에러가 나지는 않습니다. 하지만 서버에서 어떤 데이터인지 식별하지 못하는 일이 발생할지도 모르겠네요. <br>
+
+```swift
+let url = URL(string: "업로드할 URL")!
+var request = URLRequest(url: url)
+request.setValue(“multipart/form-data; boundary=\(boundary)”, forHTTPHeaderField: "Content-Type")
+request.httpBody = makeBody()
+
+URLSession.shared.dataTask(with: request)
+```
+boundary Value는 헤더에서 가지게 하여 값을 비교할  수 있도록 해주고 있네요. 그럼 UUID가 뭔지도  간단히  살펴볼까요? <br>
+
+
+#### ✐ UUID
+UUID는 Universally Unique IDentifier의 약자로, **고유의 값** 을 구하기위해 많이 사용합니다. UUID는 16 옥텟 (128비트)의 수입니다. 표준 형식에서 UUID는 32개의 십육진수로 표현되며 총 36개 문자(32개 문자와 4개의 하이픈)로 된 **8-4-4-4-12** 라는 5개의 그룹을 하이픈으로 구분합니다.
+
+```swift
+print(UUID().uuidString) // D3392A30-8B61-4CF6-9F39-BBF5FF284715
+
+// uuidString은 랜덤의 UUID를 가지는 프로퍼티입니다.
+```
+이런식으로 무작위로 만들어낼 수  있는 UUID 는 340,282,366,920,938,463,463,374,607,431,768,211,456개라고 하네요.  Int나 다른 랜덤값에 비해 표현되는 랜덤값이 매우 많아서 UUID가 겹칠 확률은 어떤 랜덤값보다 낮을 것 같네요. UUID에 대한 더 자세한 내용은 [UUID 위키백과](https://ko.wikipedia.org/wiki/범용_고유_식별자)에서 확인할 수 있습니다.
 
 <br>
 
@@ -158,30 +200,7 @@ StackOverFlow에 나온대로는 이렇다는데.. 코드에서는 **\r이나 \n
 >이름의 유래는, \r은 Carriage Return(CR), \n은 Line Feed(LF)라는 의미로 예전의 타자기에서 생겨난 용어라고 합니다. Carriage Return은 타자를 치던 줄의 맨 앞으로 이동하는 것이고 Line Feed는 다음줄로 넘어가는 것이라고 합니다. 지금의 컴퓨터의 자판은 엔터를 입력하면 자동으로 다음줄, 맨 처음으로 이동하지만 과거의 모든 것이 수동이었던 자판기는 직접 줄을 내려주고 줄의 맨 처음으로 이동해야했다고 하네요. <br>
 더 자세한 이야기는 [이 블로그](https://m.blog.naver.com/taeil34/221325864981)에서 재밌게 설명하고 있네요!
 
-<br>
-<br>
 
-
-### 🤔 UUID().uuidString
-
-```swift
-func generateBoundary() -> String {
-        return "Boundary-\(UUID().uuidString)"
-    }
-```
-
-제 코드에는  없지만 여러 레퍼런스들을 찾아보면 Boundary에 UUID를 사용하는 것을 볼 수 있었습니다. 저는 왜 UUID를 사용하는지 잘 모르겠더군요.. 어떤 이유가 있을까요??
-## 혹시 Boundary에 UUID를 사용하는 이유를 아는 분이 계시다면 공유해주시면 감사하겠습니다!!!!
-제 코드에는 없지만 저도 처음보는거라 정리해놓도록 하겠습니다. <br>
-
-UUID는 Universally Unique IDentifier의 약자로, **고유의 값** 을 구하기위해 많이 사용합니다. UUID는 16 옥텟 (128비트)의 수입니다. 표준 형식에서 UUID는 32개의 십육진수로 표현되며 총 36개 문자(32개 문자와 4개의 하이픈)로 된 **8-4-4-4-12** 라는 5개의 그룹을 하이픈으로 구분합니다.
-
-```swift
-print(UUID().uuidString) // D3392A30-8B61-4CF6-9F39-BBF5FF284715
-
-// uuidString은 랜덤의 UUID를 가지는 프로퍼티입니다.
-```
-이런식으로 무작위로 만들어낼 수  있는 UUID 는 340,282,366,920,938,463,463,374,607,431,768,211,456개라고 하네요. 더 자세한 내용은 [UUID 위키백과](https://ko.wikipedia.org/wiki/범용_고유_식별자)에서 확인할 수 있습니다.
 
 
 
@@ -204,7 +223,13 @@ let imageKey: String = "image"
 
 ```swift
 // 사전 준비
-let boundary: String = "--OdongnamuBoundary\r\n"
+let boundary = generateBoundaryString()
+let boundaryPrefix = "--\(boundary)\r\n"
+
+func generateBoundary() -> String {
+        return "Boundary-\(UUID().uuidString)"
+    }
+    
 var parameters: [String: String] = [
     "name": "Odongnamu",
     "age": "500",
@@ -262,7 +287,7 @@ makeImageListToUpload(imageList: imageList)
 
 let url = URL(string: "업로드할 URL")!
 var request = URLRequest(url: url)
-request.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+request.setValue(“multipart/form-data; boundary=\(boundary)”, forHTTPHeaderField: "Content-Type")
 request.httpBody = makeBody(parametes: parameters, imageList: imageListToUpload)
 
 URLSession.shared.dataTask(with: request)
@@ -277,6 +302,8 @@ URLSession.shared.dataTask(with: request)
 - [https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/POST](https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/POST)
 - [https://nsios.tistory.com/39](https://nsios.tistory.com/39)
 - [https://yagom.net/forums/topic/multipart통신-이미지-body-업로드/](https://yagom.net/forums/topic/multipart통신-이미지-body-업로드/)
+- [https://medium.com/@johnxavier034/uploading-array-of-images-using-multipart-form-data-in-swift-5d0cf8fc3361](https://medium.com/@johnxavier034/uploading-array-of-images-using-multipart-form-data-in-swift-5d0cf8fc3361)
+- [https://www.donnywals.com/uploading-images-and-forms-to-a-server-using-urlsession/](https://www.donnywals.com/uploading-images-and-forms-to-a-server-using-urlsession/)
 
 <br>
 <br>
