@@ -23,7 +23,7 @@ comments: true
 이벤트에 응답하고 처리하기 위한 추상 인터페이스
 
 ```swift
-@interface UIResponder : NSObject
+class UIResponder : NSObject
 ```
 
 Responder 객체 (UIResponder의 인스턴스)는 **UIKit의 중요한 뼈대를 구성하고 있습니다.** UIApplication, UIViewController, UIView 등 UIKit의 주요 클래스들은  모두 UIResponder를 상속받고 있으며 모두 Responder입니다. 그렇기 때문에 이벤트가 발생했을 때 이를  핸들링해줄 수 있습니다. <br>
