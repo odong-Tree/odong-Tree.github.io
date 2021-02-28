@@ -44,38 +44,38 @@ reset을 하면서 삭제된 커밋으로는 영영 돌아올 수 없으니 신�
 <br>
 
 ### 1) git reset .
- 현재 staging area에 add된 내용을 삭제합니다. 즉, 현재 commit버전으로 돌아온다?는 이야기인데, 이때 working directory는 삭제되지 않고 현상태가 유지됩니다.
+ 현재 staging area에 add된 내용을 삭제합니다. 즉, 현재 commit버전으로 돌아온다?는 이야기인데, 이때 working directory는 삭제되지 않고 현상태가 유지됩니다.        
 
- ![스크린샷 2021-02-28 오후 12 03 25](https://user-images.githubusercontent.com/73867548/109406845-9c202980-79bf-11eb-81ca-f3325c8958c6.jpg)
+ ![스크린샷 2021-02-28 오후 12 03 25](https://user-images.githubusercontent.com/73867548/109406845-9c202980-79bf-11eb-81ca-f3325c8958c6.jpg)     
 
 <br>
 
 ### 2) git reset <commit번호>
- <commit번호>버전으로 돌아가는 동시에 reset시점에서 돌아갈 시점 사이의 커밋 이력이 삭제됩니다. 하지만 reset 시점의 작업 내용, working directory는 유지됩니다. 아래의 1, 2, 3, 4 주석은 각각 첫번째, 두번째, 세번째, 네번째 커밋이라고 생각하면 될 것 같습니다.
+ <commit번호>버전으로 돌아가는 동시에 reset시점에서 돌아갈 시점 사이의 커밋 이력이 삭제됩니다. 하지만 reset 시점의 작업 내용, working directory는 유지됩니다. 아래의 1, 2, 3, 4 주석은 각각 첫번째, 두번째, 세번째, 네번째 커밋이라고 생각하면 될 것 같습니다.         
 
- ![스크린샷 2021-02-28 오후 12 03 47](https://user-images.githubusercontent.com/73867548/109406872-d8ec2080-79bf-11eb-9f4b-b80fda867cca.jpg)
+ ![스크린샷 2021-02-28 오후 12 03 47](https://user-images.githubusercontent.com/73867548/109406872-d8ec2080-79bf-11eb-9f4b-b80fda867cca.jpg)     
 
  commit 2로 돌아가더라도, 이렇게 4번까지 작업한 내용은 남아있게 된다는 말입니다. 잘 이해가 안된다면  아래의 --hard 명령어와 비교해봅시다.
 
 <br>
 
 ### 3) git reset --hard <commit번호>
- 'hard'라는 말처럼 강력하게 reset되는 명령어입니다. git reset과 같이 <commit번호>버전으로 돌아는 동시에 커밋 이력 삭제되지만, 기본 reset과는 다르게 working directory도 이전 버전으로 돌아가기 때문에 reset 시점에 작업했던 내용은 삭제됩니다.
+ 'hard'라는 말처럼 강력하게 reset되는 명령어입니다. git reset과 같이 <commit번호>버전으로 돌아는 동시에 커밋 이력 삭제되지만, 기본 reset과는 다르게 working directory도 이전 버전으로 돌아가기 때문에 reset 시점에 작업했던 내용은 삭제됩니다.          
 
- ![스크린샷 2021-02-28 오후 12 04 10](https://user-images.githubusercontent.com/73867548/109406914-2e283200-79c0-11eb-8236-d558d5af7222.jpg)
+ ![스크린샷 2021-02-28 오후 12 04 10](https://user-images.githubusercontent.com/73867548/109406914-2e283200-79c0-11eb-8236-d558d5af7222.jpg)       
 
  commit 2로 돌아가는 동시에 작업내용도 commit 2의 시점으로 돌아가는 강력한 reset입니다.
 
 <br>
 
 ### 4) git reset --soft <commit번호>
-reset soft는 기본적인 reset과 비슷한데 reset 시점의 작업 내용이 자동으로 staging area에 add된다는 차이가 있습니다. reset soft를 해주고 git status를 확인해보면
+reset soft는 기본적인 reset과 비슷한데 reset 시점의 작업 내용이 자동으로 staging area에 add된다는 차이가 있습니다. reset soft를 해주고 git status를 확인해보면         
 
-![스크린샷 2021-02-28 오후 12 04 44](https://user-images.githubusercontent.com/73867548/109406951-73e4fa80-79c0-11eb-9c0a-391a6c4f232a.jpg)
+![스크린샷 2021-02-28 오후 12 04 44](https://user-images.githubusercontent.com/73867548/109406951-73e4fa80-79c0-11eb-9c0a-391a6c4f232a.jpg)          
 
-이렇게 add가 되어있는 것을 확인할 수 있습니다.
+이렇게 add가 되어있는 것을 확인할 수 있습니다.      
 
- ![스크린샷 2021-02-28 오후 12 03 47](https://user-images.githubusercontent.com/73867548/109406872-d8ec2080-79bf-11eb-9f4b-b80fda867cca.jpg)
+ ![스크린샷 2021-02-28 오후 12 03 47](https://user-images.githubusercontent.com/73867548/109406872-d8ec2080-79bf-11eb-9f4b-b80fda867cca.jpg)      
 
 그리고 working directory 역시 삭제되지 않고 유지되어 있네요 :)
 
@@ -83,7 +83,8 @@ reset soft는 기본적인 reset과 비슷한데 reset 시점의 작업 내용�
 <br>
 
 # revert
-![스크린샷 2021-02-28 오후 12 05 00](https://user-images.githubusercontent.com/73867548/109406963-98d96d80-79c0-11eb-9773-f1e12442fdff.jpg)
+
+![스크린샷 2021-02-28 오후 12 05 00](https://user-images.githubusercontent.com/73867548/109406963-98d96d80-79c0-11eb-9773-f1e12442fdff.jpg)       
 
 git revert는 reset과 다르게 이전 커밋으로 돌아가더라도 커밋이력이 삭제되지 않습니다.
 
@@ -128,9 +129,9 @@ revert는 기본적으로 reset 명령어와 비슷한 상태로 돌아가게 �
 ```
 
 checkout을 사용하면 수정한 내용을 현재의 커밋으로 초기화하는 효과를 볼 수 있습니다. 즉, staging area에 add할 것이 있는 상태에서 **add할 것이 없던 상태로**  돌아간다는 이야기입니다.
-복잡하다면 아래의 예시를 봅시다!
+복잡하다면 아래의 예시를 봅시다!         
 
-![스크린샷 2021-02-28 오후 12 05 19](https://user-images.githubusercontent.com/73867548/109407119-ac390880-79c1-11eb-9e8c-7260d47de444.jpg)
+![스크린샷 2021-02-28 오후 12 05 19](https://user-images.githubusercontent.com/73867548/109407119-ac390880-79c1-11eb-9e8c-7260d47de444.jpg)     
 
 
 커밋이 된 상태에서 22번 줄 '아무말 대잔치!'라는 주석을 추가하고 `git checkout .` 명령어를 입력한 것입니다. 이렇게 수정한 내용을 깔끔하게 커밋한 부분으로  초기화할 수 있습니다. <br>
