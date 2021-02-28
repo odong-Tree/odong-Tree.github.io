@@ -50,8 +50,8 @@ reset을 하면서 삭제된 커밋으로는 영영 돌아올 수 없으니 신�
 
 <br>
 
-### 2) git reset <commit번호>
- <commit번호>버전으로 돌아가는 동시에 reset시점에서 돌아갈 시점 사이의 커밋 이력이 삭제됩니다. 하지만 reset 시점의 작업 내용, working directory는 유지됩니다. 아래의 1, 2, 3, 4 주석은 각각 첫번째, 두번째, 세번째, 네번째 커밋이라고 생각하면 될 것 같습니다.         
+### 2) git reset (commit번호)
+ (commit번호) 버전으로 돌아가는 동시에 reset시점에서 돌아갈 시점 사이의 커밋 이력이 삭제됩니다. 하지만 reset 시점의 작업 내용, working directory는 유지됩니다. 아래의 1, 2, 3, 4 주석은 각각 첫번째, 두번째, 세번째, 네번째 커밋이라고 생각하면 될 것 같습니다.         
 
  ![스크린샷 2021-02-28 오후 12 03 47](https://user-images.githubusercontent.com/73867548/109406872-d8ec2080-79bf-11eb-9f4b-b80fda867cca.jpg)     
 
@@ -59,8 +59,8 @@ reset을 하면서 삭제된 커밋으로는 영영 돌아올 수 없으니 신�
 
 <br>
 
-### 3) git reset --hard <commit번호>
- 'hard'라는 말처럼 강력하게 reset되는 명령어입니다. git reset과 같이 <commit번호>버전으로 돌아는 동시에 커밋 이력 삭제되지만, 기본 reset과는 다르게 working directory도 이전 버전으로 돌아가기 때문에 reset 시점에 작업했던 내용은 삭제됩니다.          
+### 3) git reset --hard (commit번호)
+ 'hard'라는 말처럼 강력하게 reset되는 명령어입니다. git reset과 같이 (commit번호)버전으로 돌아는 동시에 커밋 이력 삭제되지만, 기본 reset과는 다르게 working directory도 이전 버전으로 돌아가기 때문에 reset 시점에 작업했던 내용은 삭제됩니다.          
 
  ![스크린샷 2021-02-28 오후 12 04 10](https://user-images.githubusercontent.com/73867548/109406914-2e283200-79c0-11eb-8236-d558d5af7222.jpg)       
 
@@ -95,9 +95,9 @@ git revert <commit번호> : <commit번호>버전으로 돌아가기, 커밋 이�
 
 <br>
 
-### 1) git revert <commit번호>
+### 1) git revert (commit번호)
 
-revert는 기본적으로 reset 명령어와 비슷한 상태로 돌아가게 됩니다. reset과 같이 <commit번호>버전으로 돌아가는 동시에, revert하는 시점의 working directory(현재 파일  내용)는 유지됩니다. 하지만 reset과 달리 커밋 이력이 삭제되지 않습니다.
+revert는 기본적으로 reset 명령어와 비슷한 상태로 돌아가게 됩니다. reset과 같이 (commit번호)버전으로 돌아가는 동시에, revert하는 시점의 working directory(현재 파일  내용)는 유지됩니다. 하지만 reset과 달리 커밋 이력이 삭제되지 않습니다.
 
 >revert를 하면 커밋이력이 삭제되지 않는 장점이 있지만,     
  커밋이력이 남아있기 때문에 같은 곳을 수정한다면 충돌이 발생할 수 있다는 점을 유의해야합니다!
