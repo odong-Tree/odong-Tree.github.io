@@ -12,7 +12,7 @@ comments: true
 
 안녕하세요 오동나무입니다.  <br>
 
-print 구문 속에서 separator와 terminator를 보신적 있으신가요?
+print 구문 속에서 separator와 terminator를 보신적 있으신가요?         
 separator와 terminator는 출력을 도와주는 parameter입니다.
 
 
@@ -24,8 +24,7 @@ separator와 terminator는 출력을 도와주는 parameter입니다.
 
 이런 문구를 출력하기 위해서는 어떻게 해야할까요? <br>
 
-일일이 타이핑하는 방법도 있겠지만, 만약 숫자가 100이 넘어간다면 타이핑하는건 너무 힘들 것 같네요.          
-for in과 같은 반복 구문을 사용하는 방법도 있지만, 더 간단하게 **separator**를 사용하여 출력해줄 수 있습니다.
+**separator**를 사용하면 출력문 사이사이에 원하는 문자열을 넣어줄 수 있습니다. 필요에 따라 유용한 기능일 것 같네요.
 
 ```swift
 print(1, 2, 3, 4, 5, 6, 7, 8, separator: " 더하기 ")
