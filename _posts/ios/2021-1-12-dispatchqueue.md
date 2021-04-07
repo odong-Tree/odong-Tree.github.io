@@ -53,7 +53,7 @@ DispatchQueue는 GCD 기술의 일부입니다. 작업을 연속적으로 혹은
 
 ```swift
 DispatchQueue(attributes: .serial)
-DipatchQueue.main
+DispatchQueue.main
 
 // main은 전역적으로 사용되는 Serial DispatchQueue 입니다.
 ```
@@ -63,7 +63,7 @@ DipatchQueue.main
 
 ```swift
 DispatchQueue(attributes: .concurrent)
-DipatchQueue.global()
+DispatchQueue.global()
 ```
 
 <br>
@@ -79,23 +79,23 @@ DipatchQueue.global()
 
 ```swift
 // 동기, sync
-DipatchQueue.main.sync {}
-DipatchQueue.global().sync {}
+DispatchQueue.main.sync {}
+DispatchQueue.global().sync {}
 
 // 비동기, async
-DipatchQueue.main.async {}
-DipatchQueue.global().async {}
+DispatchQueue.main.async {}
+DispatchQueue.global().async {}
 ```
-- **DipatchQueue.main.sync**         
+- **DispatchQueue.main.sync**         
   논리로 따지면 일반적으로 메인스레드에서 메서드가 호출되는 것과 같습니다. 하지만 실제로 코드를 사용하려고 하면 main.sync는 **deadlock**이 발생됩니다.
 
-- **DipatchQueue.global().sync**        
+- **DispatchQueue.global().sync**        
 concurrent 스레드에서 동기적으로 작업을 처리하게 됩니다. 작업은 여러 스레드로 분산되었지만 순서대로 처리됩니다.
 
-- **DipatchQueue.main.async**         
+- **DispatchQueue.main.async**         
 비동기적 실행이지만 곧장 메서드가 시작되지는 않습니다. DispatchQueue가 아닌, 메인스레드의 작업이 모두 종료된 후에 순차적으로 작업이 실행됩니다. 그 이유는 비동기적 처리이지만 하나의 스레드에서 작업 순서가 정해지기 때문인 것 같습니다.
 
-- **DipatchQueue.global().async**        
+- **DispatchQueue.global().async**        
 스레드를 새로 만들어 동시적으로 작업을 수행합니다.
 
 <br>
@@ -117,7 +117,7 @@ concurrent 스레드에서 동기적으로 작업을 처리하게 됩니다. 작
 #### 4. main.async
 - main큐는 단일스레드에서 업무를 처리하기 때문에 비동기적으로 일을 처리하더라도 본인의 업무 순서를 기다리는 방식으로 결국 구현된다.
 >**main.async의  백그라운드 작업**                     
-main.async의 백그라운드 작업 UI작업을 메인스레드에서 하고, main.async로 새로운 스레드에서 네트워크 등의 작업을 수행한다. 사용자의 인터페이스 작업이 가능한 시점은 viewDidLoad가 끝난 후다. 그래서 viewDidLoad에 네트워크 작업하면 뷰가 만들어지는 시점이 늦어지게 된다. viewDidAppear에서 네트워크 등의 백그라운드 작업을 해주어야 하는데, 이때 main.async로 새로운 스레드에서 작업하는 것으로 사용자와의 상호작용이 가능한 상태에서 백그라운드 작업을 하게된다. (만약 viewDidAppear에서 DispatchQueue가 아닌 일반적인 코드를 써주면, 코드가 끝날때까지 사용자와의 상호작용은 할 수 없다.)
+main.async의 백그라운드 작업 UI작업을 메인스레드에서 하고, main.async로 새로운 스레드에서 네트워크 등의 작업을 수행한다. 사용자의 인터페이스 작업이 가능한 시점은 viewDidLoad가 끝난 후다. 그래서 viewDidLoad에 네트워크 작업하면 뷰가 만들어지는 시점이 늦어지게 된다. viewDidAppear에서 네트워크 등의 백그라운드 작업을 해주어야 하는데, 이때 main.async로 메인 스레드에서 비동기 작업을 하는 것으로 사용자와의 상호작용이 가능한 상태에서 백그라운드 작업을 하게된다. (만약 viewDidAppear에서 DispatchQueue가 아닌 일반적인 코드를 써주면, 코드가 끝날때까지 사용자와의 상호작용은 할 수 없다.)
 
 
 #### 5. main.sync의 deadlock
