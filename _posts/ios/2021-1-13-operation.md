@@ -299,6 +299,21 @@ Start!
 우선 순위에서 유의해야할 점은 queue 내부에서 우선순위대로 Operation이 실행되는 것이 아니라는 점입니다. 여기서 다루어지는 우선순위는 Ready 상태에 있는  Operation을 대상으로  하는 우선 순위입니다. 따라서 아래의 테스트가 더 정확하겠네요.
 
 ```swift
+let someOperation1 = BlockOperation {
+    print("Start!")
+}
+
+let blockOperation1 = BlockOperation {
+    sleep(1)
+    print ("아낌없이 주는")
+}
+
+let blockOperation2 = BlockOperation {
+    if blockOperation1.isReady {
+        print("오동나무")
+    }
+}
+
 blockOperation2.queuePriority = .high
 blockOperation1.queuePriority = .normal
 blockOperation2.addDependency(someOperation1)
@@ -366,8 +381,7 @@ class newOperation: Operation {
 
 ---------------
 
-[OperationQueue 2편 포스팅 보러가기](https://odong-tree.github.io/swift/2021/01/14/operationqueue/)
-
+[OperationQueue 2편 포스팅 보러가기](https://odong-tree.github.io/ios/2021/01/14/operationqueue/)
 
 
 <br>
