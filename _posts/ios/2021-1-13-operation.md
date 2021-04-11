@@ -58,6 +58,20 @@ let someOperation2 = BlockOperation {
 위에서 Operation은 캡슐화된 객체라고 했습니다. 코드 블록 안에는 실행될 코드가 들어갑니다.
 <br>
 
+실제로 코드 작성할 때에는 BlockOperation 객체를 사용하기 보다는
+
+```swift
+class newOperation: Operation {
+    override func main() {
+        // some code
+    }
+}
+```
+
+대부분 이렇게 직접 Operation을 상속받는 객체를 만들어서 사용하게 된다고  합니다. 이번 포스팅의 예제들에서는 편의상 간단한 테스트를 BlockOperation 타입을 사용하도록 하겠습니다.
+
+<br>
+
 ### ✐ start(), cancel(), name
 꼭 OperationQueue에 Operation을 넣지않아도, 독립적으로 실행해줄 수 있습니다. 그리고 name 프로퍼티로 Operation의 이름을 String 타입으로 할당해줄 수 있습니다.
 
@@ -265,6 +279,9 @@ enum QueuePriority: Int {
 }
 ```
 
+>**QueuePriority는 Int 타입?**
+QueuePriority는 Int 타입의 rawValue를 가지고 있습니다. 이때 만약 rawValue에 해당하지 않는 Int 값을 입력해주면 자동으로 가장 가까운 값을 찾아서 우선 순위가 결정됩니다.
+
 ```swift
 let someOperation1 = BlockOperation {
     print("Start!")
@@ -294,47 +311,9 @@ Start!
 */
 ```
 
-보통 우선 순위라고 하면 blockOperation2가 높기때문에 먼저 실행될 거라 예상되지만 blockOperation1이  먼저 실행이 됩니다. 어떻게 된 일일까요? <br>
+보통 우선 순위라고 하면 blockOperation2가 높기때문에 먼저 실행될 거라 예상되지만 blockOperation1이  먼저 실행이 됩니다. 어떻게 된 일일까요? (실제로 blockOperation1, blockOperation2가 출력되는 순서는  매번 다르네요.) <br>
 
-우선 순위에서 유의해야할 점은 queue 내부에서 우선순위대로 Operation이 실행되는 것이 아니라는 점입니다. 여기서 다루어지는 우선순위는 Ready 상태에 있는  Operation을 대상으로  하는 우선 순위입니다. 따라서 아래의 테스트가 더 정확하겠네요.
-
-```swift
-let someOperation1 = BlockOperation {
-    print("Start!")
-}
-
-let blockOperation1 = BlockOperation {
-    sleep(1)
-    print ("아낌없이 주는")
-}
-
-let blockOperation2 = BlockOperation {
-    if blockOperation1.isReady {
-        print("오동나무")
-    }
-}
-
-blockOperation2.queuePriority = .high
-blockOperation1.queuePriority = .normal
-blockOperation2.addDependency(someOperation1)
-blockOperation1.addDependency(someOperation1)
-
-let queue = OperationQueue()
-queue.addOperation(blockOperation1)
-queue.addOperation(someOperation1)
-queue.addOperation(blockOperation2)
-
-/*
-Start!
-오동나무
-아낌없이 주는
-*/
-```
-
-blockOperation1과  blockOperation2가 someOperation1에 종속되어 있기 때문에 someOperation1이 끝나면 둘은 동시에 Ready 상태가 됩니다. 따라서 이때에는 우선 순위에 따라 blockOperation2가 먼저 실행이 되는 것입니다.
-
->**QueuePriority는 Int 타입?**
-QueuePriority는 Int 타입의 rawValue를 가지고 있습니다. 이때 만약 rawValue에 해당하지 않는 Int 값을 입력해주면 자동으로 가장 가까운 값을 찾아서 우선 순위가 결정됩니다.
+이 경우 queuePriority를 설정해주는 것으로 각 Operation마다 우선 순위는 정해졌지만 **작업 처리가 비동기적으로 처리되기 때문에 어떤 작업이 먼저 수행되고 끝나는지를 예측할 수 없기 때문입니다.**
 
 <br>
 
@@ -381,7 +360,10 @@ class newOperation: Operation {
 
 ---------------
 
-[OperationQueue 2편 포스팅 보러가기](https://odong-tree.github.io/ios/2021/01/14/operationqueue/)
+[OperationQueue 2편 포스팅 보러가기](https://odong-tree.github.io/ios/2021/01/14/operationqueue/) <br>
+
+>  수정에 도움을 주신 Allen 감사합니다.         
+앨런의 강의는 [인프런](https://www.inflearn.com/course/iOS-Concurrency-GCD-Operation#)에서 들을 수 있습니다! (유료에요!!)
 
 
 <br>
