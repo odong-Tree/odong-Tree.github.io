@@ -47,10 +47,10 @@ Substring은 아래와 같은 조건에서 String 타입으로 바뀌게 되고 
 <br>
 
 
-> ### String.Subsequence
+> ## String.Subsequence
 > ![image](https://user-images.githubusercontent.com/73867548/120070203-77be1100-c0c4-11eb-820d-7ee7ef51011a.jpeg)
 split이나 suffix 메서드를 사용할 때 타입이 `String.SubSequence` 라고 나오기도 합니다. 공식문서에서는 분명 SubString을 반환한다고 했는데 말이죠. <br>
-하지만 String.SubSequence 타입은 Substring을 typealias로 정의한 또 다른 이름입니다. 즉, Substring과 같은 타입입니다.   
+하지만 String.SubSequence 타입은 Substring을 typealias로 정의한 또 다른 이름입니다. 즉, Substring과 같은 타입입니다.    <br>
 ![image](https://user-images.githubusercontent.com/73867548/120070324-e4d1a680-c0c4-11eb-8d61-91efc6067824.jpeg)
 
 
