@@ -96,7 +96,8 @@ print(newStrArray2)
 <br>
 
 ## 3. return Type
-components와 split은 반환하는 타입 역시 다릅니다. components는 `[String]` 타입을, split은 `[SubString]`을 반환합니다. SubString에 대해서는 따로 포스팅해서 링크를 남겨두도록 하겠습니다.
+components와 split은 반환하는 타입 역시 다릅니다. components는 `[String]` 타입을, split은 `[SubString]`을 반환합니다.       
+#### [ => Substring 포스팅 보러가기](https://odong-tree.github.io/swift/2021/05/29/substring/)
 
 <br>
 
