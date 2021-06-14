@@ -47,7 +47,7 @@ nav:
     - { 자료구조: '/blog/categories/#자료구조' }
     - { 알고리즘: '/blog/categories/#알고리즘' }
     - { CS : '/blog/categories/#CS' }
-    # - { Writing: '/blog/categories/#writing' }
+    - { Writing: '/blog/categories/#writing' }
     - { etc: '/blog/categories/#etc' }
   Tags:
     - '/blog/tags/'
